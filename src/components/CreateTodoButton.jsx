@@ -9,4 +9,4 @@ function CreateTodoButton(props) {
   return <button onClick={() => onClickButton('aqui se va abrir un modal')}>+</button>;
 }
 
-export default CreateTodoButton;
+export { CreateTodoButton };

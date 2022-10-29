@@ -1,12 +1,13 @@
-import React from "react";
+import { useContext } from "react";
+import { TodoContext } from "../context/TodoContext";
 
-function TodoSearch({ searchValue, setSearchValue }) {
+function TodoSearch() {
+  const { searchValue, setSearchValue } = useContext(TodoContext);
   // const [searchValue, setSearchValue] = useState("");
 
-  // funcion para escuchar los cambios que ocurran en el input search
+  // Funcion para escuchar los cambios que ocurran en el input search
   const onSearchValueChange = (event) => {
     // console.log(event.target.value)
-
     setSearchValue(event.target.value);
   };
 
@@ -14,13 +15,11 @@ function TodoSearch({ searchValue, setSearchValue }) {
     <input
       type="search"
       placeholder="Buscar TODO"
-      // el valor va ser el estado inicial del hook useState
       value={searchValue}
-      // con el evento onChange va ejecutar la funcion declara en la parte superior
       onChange={onSearchValueChange}
       className="input_search"
     />
   );
 }
 
-export default TodoSearch;
+export { TodoSearch };

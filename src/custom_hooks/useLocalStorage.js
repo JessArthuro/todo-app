@@ -5,10 +5,9 @@ function useLocalStorage(itemName, initialValue) {
   // El parametro itemName sera sustituido por el nombre que se le declare cuando se use. En este caso se llamo como TODOS_V1
   // El parametro initialValue establece el estado inicial de nuestros items, podria ser un array o algun string, etc. Eso se declara al momento de implementar el customHook
 
-  const [error, setError] = useState(false);
-
   // Estado de carga
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
 
   const [item, setItem] = useState(initialValue);
 
@@ -40,7 +39,7 @@ function useLocalStorage(itemName, initialValue) {
       } catch (error) {
         setError(error);
       }
-    }, 2000);
+    }, 2500);
   });
 
   // Funcion para obtener un nuevo array filtrando los TODOs completados o eliminados y convertirlos a una cadena JSON y poder almacenarlos en localStorage
@@ -58,4 +57,4 @@ function useLocalStorage(itemName, initialValue) {
   return { item, saveItem, loading, error };
 }
 
-export default useLocalStorage;
+export { useLocalStorage };

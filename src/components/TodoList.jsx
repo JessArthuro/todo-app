@@ -8,4 +8,4 @@ function TodoList(props) {
   );
 }
 
-export default TodoList;
+export { TodoList };

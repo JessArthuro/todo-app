@@ -1,0 +1,14 @@
+.todo_item {
+  background-color: #3e4554;
+  /* border: 1px solid red; */
+  padding: 0.85rem;
+  display: flex;
+  justify-content: space-between;
+  color: #fff;
+}
+
+.todo_completed {
+  background-color: #376efb;
+  text-decoration: line-through;
+  color: rgba(0, 0, 0, 0.2);
+}

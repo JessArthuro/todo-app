@@ -9,7 +9,8 @@
 
 body {
   height: 600px;
-  background-color: #303642;
+  /* background-color: #303642; */
+  background-color: #222831;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -29,6 +30,8 @@ ul {
   display: flex;
   flex-direction: column;
   row-gap: 1rem;
+  max-height: 18rem;
+  overflow-y: scroll;
 }
 
 .input_search {

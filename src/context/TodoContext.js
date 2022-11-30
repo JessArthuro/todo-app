@@ -18,6 +18,8 @@ function TodoProvider(props) {
   // Estado inicial del buscador de TODOs
   const [searchValue, setSearchValue] = useState("");
 
+  const [openModal, setOpenModal] = useState(false);
+
   const completedTodos = todos.filter((todo) => todo.completed).length;
   const totalTodos = todos.length;
 
@@ -39,6 +41,15 @@ function TodoProvider(props) {
       return todoText.includes(searchText);
     });
   }
+
+  const addTodo = (text) => {
+    const newTodos = [...todos];
+    newTodos.push({
+      completed: false,
+      text,
+    });
+    saveTodos(newTodos);
+  };
 
   // La funcion recibe el texto del TODO como el identificador de cada uno
   const completeTodo = (text) => {
@@ -70,8 +81,11 @@ function TodoProvider(props) {
         searchValue,
         setSearchValue,
         searchedTodos,
+        addTodo,
         completeTodo,
         deleteTodo,
+        openModal,
+        setOpenModal,
       }}
     >
       {props.children}

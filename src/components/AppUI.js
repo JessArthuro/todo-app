@@ -6,11 +6,20 @@ import { TodoSearch } from "./TodoSearch";
 import { TodoList } from "./TodoList";
 import { TodoItem } from "./TodoItem";
 import { CreateTodoButton } from "./CreateTodoButton";
+import { Modal } from "./modal/Modal";
+import { TodoForm } from "./todo_form/TodoForm";
 
 function AppUI() {
   // Desestructuramos los valores de nuestro contexto
-  const { error, loading, searchedTodos, completeTodo, deleteTodo } =
-    useContext(TodoContext);
+  const {
+    error,
+    loading,
+    searchedTodos,
+    completeTodo,
+    deleteTodo,
+    openModal,
+    setOpenModal,
+  } = useContext(TodoContext);
 
   return (
     <div className="todo_content">
@@ -34,7 +43,13 @@ function AppUI() {
         ))}
       </TodoList>
 
-      <CreateTodoButton />
+      {openModal && (
+        <Modal>
+          <TodoForm />
+        </Modal>
+      )}
+
+      <CreateTodoButton setOpenModal={setOpenModal} />
     </div>
   );
 }

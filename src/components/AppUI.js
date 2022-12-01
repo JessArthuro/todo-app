@@ -1,13 +1,14 @@
 import { useContext } from "react";
 // Tambien es importante importar nuestro contexto
 import { TodoContext } from "../context/TodoContext";
-import { TodoCounter } from "./TodoCounter";
+// import { TodoCounter } from "./TodoCounter";
 import { TodoSearch } from "./TodoSearch";
 import { TodoList } from "./TodoList";
 import { TodoItem } from "./TodoItem";
 import { CreateTodoButton } from "./CreateTodoButton";
 import { Modal } from "./modal/Modal";
 import { TodoForm } from "./todo_form/TodoForm";
+import WelcomeSection from "./WelcomeSection";
 
 function AppUI() {
   // Desestructuramos los valores de nuestro contexto
@@ -22,35 +23,37 @@ function AppUI() {
   } = useContext(TodoContext);
 
   return (
-    <div className="todo_content">
-      <TodoCounter />
-      <TodoSearch />
+    <section className="todo_section">
+      <WelcomeSection />
+      {/* <TodoCounter /> */}
+      <section className="todo_content">
+        <TodoSearch />
 
-      <TodoList>
-        {error && <p>Ha ocurrido un error...</p>}
-        {loading && <p>Cargando los datos, por favor espera...</p>}
-        {!loading && !searchedTodos.length && <p>¡Crea tu primer TODO!</p>}
+        <TodoList>
+          {error && <p>Ha ocurrido un error...</p>}
+          {loading && <p>Cargando los datos, por favor espera...</p>}
+          {!loading && !searchedTodos.length && <p>¡Sin resultados, crea tu primer tarea!</p>}
 
-        {searchedTodos.map((todo, index) => (
-          <TodoItem
-            key={index}
-            text={todo.text}
-            completed={todo.completed}
-            // la popiedad onComplete llama a la funcion completeTodo enviandole el texto de ese TODO
-            onComplete={() => completeTodo(todo.text)}
-            onDelete={() => deleteTodo(todo.text)}
-          />
-        ))}
-      </TodoList>
+          {searchedTodos.map((todo, index) => (
+            <TodoItem
+              key={index}
+              text={todo.text}
+              completed={todo.completed}
+              // la popiedad onComplete llama a la funcion completeTodo enviandole el texto de ese TODO
+              onComplete={() => completeTodo(todo.text)}
+              onDelete={() => deleteTodo(todo.text)}
+            />
+          ))}
+        </TodoList>
+        <CreateTodoButton setOpenModal={setOpenModal} />
+      </section>
 
       {openModal && (
         <Modal>
           <TodoForm />
         </Modal>
       )}
-
-      <CreateTodoButton setOpenModal={setOpenModal} />
-    </div>
+    </section>
   );
 }
 

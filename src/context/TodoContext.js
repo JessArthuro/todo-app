@@ -54,12 +54,20 @@ function TodoProvider(props) {
   // La funcion recibe el texto del TODO como el identificador de cada uno
   const completeTodo = (text) => {
     // El metodo findIndex() devuelve el indice del primer elemento de un array que cumpla con la igualacion
-    const todoIndex = todos.findIndex((todo) => todo.text === text);
-    const newTodos = [...todos];
-    // Del nuevo array obtenemos el TODO que coincide con la igualacion y lo marcamos como completado
-    newTodos[todoIndex].completed = true;
-    // Mandamos a actualizar nuestro estado para volver a renderizar la aplicacion.
-    saveTodos(newTodos);
+    // const todoIndex = todos.findIndex((todo) => todo.text === text);
+    // const newTodos = [...todos];
+    // // Del nuevo array obtenemos el TODO que coincide con la igualacion y lo marcamos como completado
+    // newTodos[todoIndex].completed = true;
+    // // Mandamos a actualizar nuestro estado para volver a renderizar la aplicacion.
+    // saveTodos(newTodos);
+
+    const todoChecked = todos.map((todo) => {
+      if (todo.text === text) {
+        todo.completed = !todo.completed;
+      }
+      return todo;
+    });
+    saveTodos(todoChecked);
   };
 
   const deleteTodo = (text) => {

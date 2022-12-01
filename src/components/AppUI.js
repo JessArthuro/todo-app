@@ -27,6 +27,7 @@ function AppUI() {
       <WelcomeSection />
       {/* <TodoCounter /> */}
       <section className="todo_content">
+        <h3>Lista de Tareas</h3>
         <TodoSearch />
 
         <TodoList>

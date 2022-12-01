@@ -15,12 +15,11 @@ body {
   width: 100%;
   padding-bottom: 2rem;
   background-color: #f6f7fb;
-  border-radius: 0 0 1rem 1rem;
 }
 
 .welcome_section {
   background-color: #ffffff;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
   padding: 2rem 1rem;
   border-radius: 0 0 2rem 2rem;
   color: #6d76a3;
@@ -35,8 +34,42 @@ body {
 .welcome_section h2 {
   color: #0d163f;
   line-height: 2rem;
-  font-size: 1.65rem;
+  font-size: 1.85rem;
+  font-weight: 600;
   margin: 0.25rem 0 0.5rem;
+}
+
+.days_container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+  margin: 1rem 0 1rem 0;
+}
+
+.day_item {
+  color: #0d163f;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+  padding: 0.35rem 0;
+}
+
+.today {
+  background-color: #5460FE;
+  color: #fff;
+}
+
+.day_name {
+  text-transform: capitalize;
+  font-size: 0.9rem;
+}
+
+.day_number {
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+  font-weight: 500;
 }
 
 .todo_counter {
@@ -51,8 +84,11 @@ body {
   width: 100%;
   padding: 0.75rem 1rem;
   border-radius: 0.5rem;
-  border: 1.5px solid #0d163f;
+  /* border: 1.5px solid #0d163f; */
+  border: 0;
   outline: 0;
+  box-shadow: 0 0 5px rgba(13, 22, 63, 0.3);
+  /* box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); */
   margin-bottom: 2rem;
 }
 
@@ -71,6 +107,7 @@ body {
   gap: 1rem;
   border-radius: 0.5rem;
   color: #fff;
+  font-size: 0.95rem;
   font-weight: 500;
 }
 
@@ -99,13 +136,59 @@ body {
 }
 
 .todo_completed {
-  background-color: #eaeaea !important;
-  text-decoration: line-through;
-  color: rgba(0, 0, 0, 0.2);
+  background-color: #f6f7fb !important;
+  box-shadow: 0 0 2.5px rgba(0, 0, 0, 0.2);
+  text-decoration:  line-through;
+  color: rgba(0, 0, 0, 0.15);
 }
 
-.btn_delete, .btn_complete {
+.buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 1rem;
+}
+
+.btn_delete,
+.btn_complete {
   cursor: pointer;
+  background: none;
+  border: 0;
+}
+
+.btn_complete {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  font-size: 1.85rem;
+  border: 2px solid #fff;
+  position: relative;
+}
+
+.icon_check {
+  position: absolute;
+  top: -0.5rem;
+  right: -0.5rem;
+  color: #6dc10d;
+  display: none;
+}
+
+.todo_completed .btn_complete {
+  border: 2px solid #6dc10d;
+}
+
+.todo_completed .icon_check {
+  display: block;
+}
+
+.btn_delete {
+  width: 30px;
+  height: 30px;
+  font-size: 1.75rem;
+  color: #f3425f;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 @media (min-width: 520px) {

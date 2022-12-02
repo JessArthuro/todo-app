@@ -39,7 +39,7 @@ function useLocalStorage(itemName, initialValue) {
       } catch (error) {
         setError(error);
       }
-    }, 2500);
+    }, 2000);
   });
 
   // Funcion para obtener un nuevo array filtrando los TODOs completados o eliminados y convertirlos a una cadena JSON y poder almacenarlos en localStorage

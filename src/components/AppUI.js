@@ -27,13 +27,18 @@ function AppUI() {
       <WelcomeSection />
       {/* <TodoCounter /> */}
       <section className="todo_content">
-        <h3>Lista de Tareas</h3>
+        <div className="todo_titles">
+          <h3>Lista de Tareas</h3>
+          <CreateTodoButton setOpenModal={setOpenModal} />
+        </div>
         <TodoSearch />
 
         <TodoList>
           {error && <p>Ha ocurrido un error...</p>}
           {loading && <p>Cargando los datos, por favor espera...</p>}
-          {!loading && !searchedTodos.length && <p>¡Sin resultados, crea tu primer tarea!</p>}
+          {!loading && !searchedTodos.length && (
+            <p>¡Sin resultados, crea tu primer tarea!</p>
+          )}
 
           {searchedTodos.map((todo, index) => (
             <TodoItem
@@ -46,7 +51,6 @@ function AppUI() {
             />
           ))}
         </TodoList>
-        <CreateTodoButton setOpenModal={setOpenModal} />
       </section>
 
       {openModal && (

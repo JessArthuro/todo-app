@@ -1,7 +1,5 @@
 import { useContext } from "react";
-// Tambien es importante importar nuestro contexto
 import { TodoContext } from "../context/TodoContext";
-// import { TodoCounter } from "./TodoCounter";
 import { TodoSearch } from "./TodoSearch";
 import { TodoList } from "./TodoList";
 import { TodoItem } from "./TodoItem";
@@ -45,7 +43,6 @@ function AppUI() {
               key={index}
               text={todo.text}
               completed={todo.completed}
-              // la popiedad onComplete llama a la funcion completeTodo enviandole el texto de ese TODO
               onComplete={() => completeTodo(todo.text)}
               onDelete={() => deleteTodo(todo.text)}
             />

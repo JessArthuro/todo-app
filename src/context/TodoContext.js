@@ -43,12 +43,15 @@ function TodoProvider(props) {
   }
 
   const addTodo = (text) => {
-    const newTodos = [...todos];
-    newTodos.push({
-      completed: false,
-      text,
-    });
-    saveTodos(newTodos);
+    // Validacion para comprobar que el valor no venga vacio.
+    if (text.trim()) {
+      const newTodos = [...todos];
+      newTodos.unshift({
+        completed: false,
+        text,
+      });
+      saveTodos(newTodos);
+    }
   };
 
   // La funcion recibe el texto del TODO como el identificador de cada uno

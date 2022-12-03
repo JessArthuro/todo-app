@@ -1,5 +1,6 @@
 import { useState, useContext } from "react";
 import { TodoContext } from "../../context/TodoContext";
+import "../../styles/todo_form.css"
 
 function TodoForm() {
   const [newTodoValue, setNewTodoValue] = useState("");
@@ -26,9 +27,9 @@ function TodoForm() {
       <textarea
         value={newTodoValue}
         onChange={onChange}
-        placeholder="Escribe los detalles de tu primer TODO"
+        placeholder="Describe los datos de tu nueva tarea..."
       />
-      <div>
+      <div className="form_buttons">
         <button type="button" onClick={onCancel}>
           Cancelar
         </button>

@@ -1,6 +1,6 @@
 import { useState, useContext } from "react";
-import { TodoContext } from "../../context/TodoContext";
-import "../../styles/todo_form.css"
+import { TodoContext } from "../context/TodoContext";
+import "../styles/todo_form.css";
 
 function TodoForm() {
   const [newTodoValue, setNewTodoValue] = useState("");

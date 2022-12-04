@@ -1,5 +1,6 @@
 import React from "react";
 import { MdDelete, MdCheck } from "react-icons/md";
+import "../styles/todo_item.css";
 
 function TodoItem({ text, completed, onComplete, onDelete }) {
   return (

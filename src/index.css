@@ -25,7 +25,7 @@ body {
   max-height: 5rem;
   overflow-y: scroll;
   /* Ocultar la barra de desplazamiento en Firefox */
-  scrollbar-width: none; 
+  scrollbar-width: none;
 }
 
 /* Ocultar la barra de desplazamiento en navegadores con webkit */
@@ -88,87 +88,6 @@ body {
   flex-direction: column;
   gap: 2.5rem;
   margin-top: 1rem;
-}
-
-.todo_item {
-  background-color: #fff;
-  padding: 2rem 1rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1rem;
-  border-radius: 0.5rem;
-  color: var(--dark-blue);
-  font-size: 0.95rem;
-  font-weight: 500;
-  position: relative;
-  box-shadow: 0 0 5px rgba(13, 22, 63, 0.2);
-}
-
-.todo_item::before {
-  content: "";
-  position: absolute;
-  top: -1rem;
-  left: 0;
-  width: 100%;
-  border-top: 1.85px dashed rgba(109, 118, 163, 0.2);
-}
-
-.todo_completed {
-  background-color: #f6f7fb;
-  background: repeating-linear-gradient(
-    -45deg,
-    rgba(109, 118, 163, 0.1),
-    rgba(109, 118, 163, 0.1) 2px,
-    #f6f7fb 2px,
-    #f6f7fb 10px
-  );
-  color: rgba(13, 22, 63, 0.2);
-}
-
-.buttons {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  row-gap: 1rem;
-}
-
-.btn_delete,
-.btn_complete {
-  cursor: pointer;
-  background: none;
-  border: 0;
-}
-
-.btn_complete {
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  font-size: 1.85rem;
-  border: 2px solid var(--primary-color);
-  position: relative;
-}
-
-.icon_check {
-  position: absolute;
-  top: -0.5rem;
-  right: -0.5rem;
-  color: var(--primary-color);
-  display: none;
-}
-
-.todo_completed .icon_check {
-  display: block;
-}
-
-.btn_delete {
-  width: 30px;
-  height: 30px;
-  font-size: 1.75rem;
-  color: #f3425f;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 @media (min-width: 520px) {

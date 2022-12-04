@@ -5,19 +5,16 @@ import { useLocalStorage } from "../hooks/useLocalStorage";
 const TodoContext = createContext();
 
 function TodoProvider(props) {
-  // ** Nos traemos todo el estado y las funciones de nuestra aplicacion que queremos globales...
   // Uso del customHook para usar la persistencia de datos con localStorage
   const {
+    // Se renombran los elementos poniendo dos puntos al comienzo
     item: todos,
     saveItem: saveTodos,
     loading,
     error,
   } = useLocalStorage("TODOS_V1", []);
-  // Se renombran los elementos poniendo dos puntos al comienzo
 
-  // Estado inicial del buscador de TODOs
   const [searchValue, setSearchValue] = useState("");
-
   const [openModal, setOpenModal] = useState(false);
 
   const completedTodos = todos.filter((todo) => todo.completed).length;
@@ -56,14 +53,6 @@ function TodoProvider(props) {
 
   // La funcion recibe el texto del TODO como el identificador de cada uno
   const completeTodo = (text) => {
-    // El metodo findIndex() devuelve el indice del primer elemento de un array que cumpla con la igualacion
-    // const todoIndex = todos.findIndex((todo) => todo.text === text);
-    // const newTodos = [...todos];
-    // // Del nuevo array obtenemos el TODO que coincide con la igualacion y lo marcamos como completado
-    // newTodos[todoIndex].completed = true;
-    // // Mandamos a actualizar nuestro estado para volver a renderizar la aplicacion.
-    // saveTodos(newTodos);
-
     const todoChecked = todos.map((todo) => {
       if (todo.text === text) {
         todo.completed = !todo.completed;
@@ -71,6 +60,16 @@ function TodoProvider(props) {
       return todo;
     });
     saveTodos(todoChecked);
+
+    /* 
+    * Metodo Alternativo
+    // El metodo findIndex() devuelve el indice del primer elemento de un array que cumpla con la igualacion
+    const todoIndex = todos.findIndex((todo) => todo.text === text);
+    const newTodos = [...todos];
+    // Del nuevo array obtenemos el TODO que coincide con la igualacion y lo marcamos como completado
+    newTodos[todoIndex].completed = true;
+    // Mandamos a actualizar nuestro estado para volver a renderizar la aplicacion.
+    saveTodos(newTodos); */
   };
 
   const deleteTodo = (text) => {

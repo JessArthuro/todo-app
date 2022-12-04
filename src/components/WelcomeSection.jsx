@@ -30,4 +30,4 @@ function WelcomeSection() {
   );
 }
 
-export default WelcomeSection;
+export { WelcomeSection };

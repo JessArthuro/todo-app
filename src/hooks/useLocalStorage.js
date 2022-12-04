@@ -5,10 +5,8 @@ function useLocalStorage(itemName, initialValue) {
   // El parametro itemName sera sustituido por el nombre que se le declare cuando se use. En este caso se llamo como TODOS_V1
   // El parametro initialValue establece el estado inicial de nuestros items, podria ser un array o algun string, etc. Eso se declara al momento de implementar el customHook
 
-  // Estado de carga
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
-
   const [item, setItem] = useState(initialValue);
 
   // Simulacion de una peticion a una API, se establece que la informacion la retorne despues de 2 segundos
@@ -16,8 +14,7 @@ function useLocalStorage(itemName, initialValue) {
     setTimeout(() => {
       // Envolvemos el bloque de instrucciones en un declaracion try y si llega ocurrir un error, lo mostramos en el bloque catch
       try {
-        // ** Persistencia de datos con localStorage
-        // Al elemento guardado en localStorage se le llamo como (itemName === TODOS_V1) y a la vez este valor se guardo en una constante.
+        // Al elemento guardado en localStorage se le llamo como (itemName === TODOS_V1)
         const localStorageItem = localStorage.getItem(itemName);
 
         let parsedItem;

@@ -4,9 +4,9 @@ import { TodoSearch } from "./TodoSearch";
 import { TodoList } from "./TodoList";
 import { TodoItem } from "./TodoItem";
 import { CreateTodoButton } from "./CreateTodoButton";
-import { Modal } from "./modal/Modal";
-import { TodoForm } from "./todo_form/TodoForm";
-import WelcomeSection from "./WelcomeSection";
+import { Modal } from "./Modal";
+import { TodoForm } from "./TodoForm";
+import { WelcomeSection } from "./WelcomeSection";
 
 function AppUI() {
   // Desestructuramos los valores de nuestro contexto
@@ -23,7 +23,6 @@ function AppUI() {
   return (
     <section className="todo_section">
       <WelcomeSection />
-      {/* <TodoCounter /> */}
       <section className="todo_content">
         <div className="todo_titles">
           <h3>Lista de Tareas</h3>
